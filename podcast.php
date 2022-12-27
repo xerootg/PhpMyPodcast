@@ -2,9 +2,10 @@
 header('Content-type: application/xml');
 ?>
 <?php
+    // Stolen from http://www.zedwood.com/article/php-calculate-duration-of-mp3
+
 class MP3File
 {
-    // Stolen from http://www.zedwood.com/article/php-calculate-duration-of-mp3
     protected $filename;
     public function __construct($filename)
     {
@@ -102,7 +103,7 @@ class MP3File
         static $bitrates = array(
             'V1L1'=>array(0,32,64,96,128,160,192,224,256,288,320,352,384,416,448),
             'V1L2'=>array(0,32,48,56, 64, 80, 96,112,128,160,192,224,256,320,384),
-            'V1L3'=>array(0,32,40,48, 56, 64, 80, 96,http://www.zedwood.com/article/php-calculate-duration-of-mp3112,128,160,192,224,256,320),
+            'V1L3'=>array(0,32,40,48, 56, 64, 80, 96,112,128,160,192,224,256,320),
             'V2L1'=>array(0,32,48,56, 64, 80, 96,112,128,144,160,176,192,224,256),
             'V2L2'=>array(0, 8,16,24, 32, 40, 48, 56, 64, 80, 96,112,128,144,160),
             'V2L3'=>array(0, 8,16,24, 32, 40, 48, 56, 64, 80, 96,112,128,144,160),
@@ -123,7 +124,7 @@ class MP3File
  
         $version_bits = ($b1 & 0x18) >> 3;
         $version = $versions[$version_bits];
-        $simple_version =  ($version=='2.5' ? 2 : $vehttp://www.zedwood.com/article/php-calculate-duration-of-mp3rsion);
+        $simple_version =  ($version=='2.5' ? 2 : $version);
  
         $layer_bits = ($b1 & 0x06) >> 1;
         $layer = $layers[$layer_bits];
