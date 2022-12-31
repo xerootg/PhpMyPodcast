@@ -167,7 +167,7 @@ class MP3File
 $server = $_SERVER['SERVER_NAME'];
 $currentDir = implode("/",array_slice(explode("/", $_SERVER['REQUEST_URI']), 0,-1));
 $currentUriFolder = $server . $currentDir . "/";
-$currentFolderName = implode("",array_slice(explode("/", $_SERVER['REQUEST_URI']), -2, -1));
+$currentFolderName = urldecode(implode("",array_slice(explode("/", $_SERVER['REQUEST_URI']), -2, -1)));
 ?>
 <?xml version="1.0" encoding="UTF-8"?>
   <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
